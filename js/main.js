@@ -178,7 +178,7 @@
                 sortedHtml += '<tr>'
                     + '<td>' + (i + 1) + '</td>'
                     + '<td>' + sorted[i].name + '</td>'
-                    + '<td>' + sorted[i].level + '</td>'
+                    + '<td>' + (sorted[i].level-1) + '</td>'
                     + '</tr>';
             }
         }
