@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+body {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #4d4d4d;
+    background: #f5f5f5;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 300;
+    min-height:580px;
+    min-width: 700px;
+}
+
+button,
+input[type="checkbox"],
+input {
+    border: 0;
+    outline: none;
+}
+.hidden {
+    display: none;
+}
+
+.header > h1{
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+    font-size: 70px;
+}
+
+.main {
+    position: relative;
+    top: 30px;
+    height: 220px;
+}
+.canvas {
+    position: absolute;
+    min-width: 690px;
+    left:50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    margin-bottom: 150px;
+    background: #eee;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    transition: all .3s ease;
+}
+.intro {
+    position: absolute;
+    min-width: 610px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.panel {
+    margin-bottom: 0;
+}
+.panel-title {
+    text-align: left;
+}
+.intro-more {
+    display: inline;
+    padding: 30px;
+}
+
+.num-items {
+    width:100%;
+    text-align: center;
+}
+
+.item {
+    display:inline-block;
+    width: 120px;
+    height: 120px;
+    background: #777;
+    color: #fff;
+    margin: 15px 25px;
+    font-size: 56px;
+    text-align: center;
+    line-height:120px;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    transition: all .3s ease;
+}
+
+.not-in-game .intro {
+    display: block;
+    box-shadow:0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+.not-in-game .canvas {
+    display: none;
+}
+.not-in-game .js-restart {
+    display: none;
+}
+
+.ready .intro {
+    display: none;
+}
+.ready .canvas {
+    display: block;
+}
+.ready .item:hover {
+    background: #999;
+}
+.ready .js-restart{
+    display: inline;
+}
+.ready .js-start {
+    display: none;
+}
+
+.gaming .intro {
+    display: none;
+}
+.gaming .canvas {
+    display: block;
+}
+.gaming .item{
+    background: none;
+    color: #777;
+    border:1px solid #777;
+    text-indent: -99999px;
+    transition: all .3s ease;
+}
+
+.gaming .item:hover {
+    background: #ddd;
+}
+
+.gaming .js-restart{
+    display: inline;
+}
+.gaming .js-start {
+    display: none;
+}
+
+.ready .info, .gaming .info {
+    display: none;
+}
+
+.show-text {
+    text-indent: 0!important;
+}
+
+.footer {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.footer button{
+    display: inline-block;
+}
+
+.info {
+    margin: 65px auto 0;
+    color: #bfbfbf;
+    font-size: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+.info a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 400;
+}
