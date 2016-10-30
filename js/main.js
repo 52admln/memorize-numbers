@@ -82,31 +82,33 @@
         var data = ele.dataset.num;
         console.log(data);
         //debugger;
-
-        if (data == 1 && gaming == false && clicked == false) {
-            $(".container").removeClass("ready").addClass("gaming");
-            gaming = true;
-            clicked = true;
-            $(ele).addClass("show-text");
-        } else if (clicked == true) {
-            if (data == cur_num && gaming == true) {
+        if(ele.dataset.isClicked != "true"){
+            if (data == 1 && gaming == false && clicked == false) {
+                $(".container").removeClass("ready").addClass("gaming");
+                gaming = true;
+                clicked = true;
                 $(ele).addClass("show-text");
-            } else {
-                stopGame();
+                ele.dataset.isClicked = "true";
+            } else if (clicked == true) {
+                if (data == cur_num && gaming == true) {
+                    $(ele).addClass("show-text");
+                } else {
+                    stopGame();
+                }
             }
-        }
-        cur_num++;
-        if (data == item_num && cur_num - 1 == item_num && clicked == true) {
-            //$(".container").attr("class", "container not-in-game");
-            $('#nextLevel').modal({
-                keyboard: false,
-                backdrop: 'static'
-            });
-            clicked = false;
-            gaming = false;
-        }
+            cur_num++;
+            if (data == item_num && cur_num - 1 == item_num && clicked == true) {
+                //$(".container").attr("class", "container not-in-game");
+                $('#nextLevel').modal({
+                    keyboard: false,
+                    backdrop: 'static'
+                });
+                clicked = false;
+                gaming = false;
+            }
+            ele.dataset.isClicked = "true";
         //console.log("cur:"+cur_num);
-
+        }
 
     }
 // 保存成绩
@@ -161,7 +163,7 @@
         var renderHtml = "";
         for (var i = 0; i < numArr.length; i++) {
             var index = Math.floor(Math.random() * (item_num + 1));
-            renderHtml += '<li class="item" data-num="' + numArr[i] + '">'
+            renderHtml += '<li class="item" data-num="' + numArr[i] + '" data-is-clicked="false">'
                 + numArr[i]
                 + '</li>';
         }
