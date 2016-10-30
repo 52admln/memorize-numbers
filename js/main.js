@@ -7,8 +7,8 @@
  * 关卡5： 18
  *
  */
-
 (function () {
+
     // 数组乱序
     if (!Array.prototype.shuffle) {
         Array.prototype.shuffle = function () {
