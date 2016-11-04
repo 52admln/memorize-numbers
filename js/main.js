@@ -81,7 +81,7 @@
     function clickNum(ele) {
         var data = ele.dataset.num;
         console.log(data);
-        //debugger;
+        debugger;
         if(ele.dataset.isClicked != "true"){
             if (data == 1 && gaming == false && clicked == false) {
                 $(".container").removeClass("ready").addClass("gaming");
@@ -89,14 +89,17 @@
                 clicked = true;
                 $(ele).addClass("show-text");
                 ele.dataset.isClicked = "true";
-            } else if (clicked == true) {
+            } else {
                 if (data == cur_num && gaming == true) {
                     $(ele).addClass("show-text");
-                } else {
+                    ele.dataset.isClicked = "true";
+                } else if(gaming){
                     stopGame();
                 }
             }
-            cur_num++;
+            if(gaming) {
+                cur_num++;
+            }
             if (data == item_num && cur_num - 1 == item_num && clicked == true) {
                 //$(".container").attr("class", "container not-in-game");
                 $('#nextLevel').modal({
@@ -106,7 +109,7 @@
                 clicked = false;
                 gaming = false;
             }
-            ele.dataset.isClicked = "true";
+            //ele.dataset.isClicked = "true";
         //console.log("cur:"+cur_num);
         }
 
